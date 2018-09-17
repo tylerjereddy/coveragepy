@@ -794,7 +794,7 @@ assert len(math) == 18
 
         cov = coverage.Coverage(include=["./*"])
         cov.start()
-        import main         # pragma: nested # pylint: disable=unused-variable, import-error
+        import main         # pragma: nested # pylint: disable=unused-import
         cov.stop()          # pragma: nested
         cov.html_report(directory="out")
 
@@ -805,7 +805,7 @@ assert len(math) == 18
 
         cov = coverage.Coverage(include=["./*"])
         cov.start()
-        import main         # pragma: nested # pylint: disable=unused-variable, import-error
+        import main         # pragma: nested # pylint: disable=unused-import
         cov.stop()          # pragma: nested
         cov.html_report(directory="out", omit=["m1.py"])
 
@@ -816,7 +816,7 @@ assert len(math) == 18
 
         cov = coverage.Coverage(include=["./*"])
         cov.start()
-        import main         # pragma: nested # pylint: disable=unused-variable, import-error
+        import main         # pragma: nested # pylint: disable=unused-import
         cov.stop()          # pragma: nested
         cov.html_report(directory="out", omit=["m1.py", "m2.py"])
 
@@ -831,7 +831,7 @@ assert len(math) == 18
 
         cov = coverage.Coverage(config_file="omit4.ini", include=["./*"])
         cov.start()
-        import main         # pragma: nested # pylint: disable=unused-variable, import-error
+        import main         # pragma: nested # pylint: disable=unused-import
         cov.stop()          # pragma: nested
         cov.html_report(directory="out")
 
@@ -852,7 +852,7 @@ assert len(math) == 18
 
         cov = coverage.Coverage(config_file="omit5.ini", include=["./*"])
         cov.start()
-        import main         # pragma: nested # pylint: disable=unused-variable, import-error
+        import main         # pragma: nested # pylint: disable=unused-import
         cov.stop()          # pragma: nested
         cov.html_report()
 
@@ -879,7 +879,7 @@ assert len(math) == 18
             sys.path.insert(0, "../othersrc")
             cov = coverage.Coverage(include=["./*", "../othersrc/*"])
             cov.start()
-            import here         # pragma: nested # pylint: disable=unused-variable, import-error
+            import here         # pragma: nested # pylint: disable=unused-import
             cov.stop()          # pragma: nested
             cov.html_report(directory="../out")
 

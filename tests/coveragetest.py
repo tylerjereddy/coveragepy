@@ -84,7 +84,7 @@ class CoverageTest(
     temp_dir_prefix = "coverage_test/"
 
     # Keep the temp directories if the env says to.
-    keep_temp_dir = bool(int(os.getenv("COVERAGE_KEEP_TMP", 0)))
+    keep_temp_dir = bool(int(os.getenv("COVERAGE_KEEP_TMP", "0")))
 
     def setUp(self):
         super(CoverageTest, self).setUp()
