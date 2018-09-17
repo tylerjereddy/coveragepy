@@ -72,8 +72,11 @@ disable=
     using-constant-test,
     too-many-nested-blocks,
     too-many-ancestors,
+    try-except-raise,
 # Formatting stuff
     superfluous-parens,bad-continuation,
+# Too strict about Python 3, while we still support Python 2:
+    useless-object-inheritance,
 # Messages that are noisy for now, eventually maybe we'll turn them on:
     invalid-name,
     protected-access,
