@@ -18,24 +18,19 @@ Unreleased
 ----------
 
 - You can specify the command line to run your program with the ``[run]
-  command_line`` configuration setting. `issue 695`_.
+  command_line`` configuration setting. :github:`695`.
 
 - Coverage will create directories as needed for the data file if they don't
-  exist, closing `issue 721`_.
+  exist, closing :github:`721`.
 
 - Coverage commands no longer clobber the first entry in sys.path, fixing
-  `issue 715`_.
+  :github:`715`.
 
 - Improvements to context support:
 
-  - The "no such table: meta" error is fixed.: `issue 716`_.
+  - The "no such table: meta" error is fixed. :github:`716`.
 
   - Combining data files now goes much faster.
-
-.. _issue 695: https://github.com/nedbat/coveragepy/issues/695
-.. _issue 715: https://github.com/nedbat/coveragepy/issues/715
-.. _issue 716: https://github.com/nedbat/coveragepy/issues/716
-.. _issue 721: https://github.com/nedbat/coveragepy/issues/721
 
 
 .. _changes_50a3:
@@ -49,7 +44,7 @@ Version 5.0a3 --- 2018-10-06
 
 - Dynamic contexts: specifying ``[run] dynamic_context = test_function`` in the
   config file will record the test function name as a dynamic context during
-  execution.  This is the core of "Who Tests What" (`issue 170`_).  Things to
+  execution.  This is the core of "Who Tests What" (:github:`170`).  Things to
   note:
 
   - There is no reporting support yet.  Use SQLite to query the .coverage file
@@ -65,18 +60,13 @@ Version 5.0a3 --- 2018-10-06
     what else would be useful.  I'd like to use a pytest plugin to get better
     information directly from pytest, for example.
 
-.. _issue 170: https://github.com/nedbat/coveragepy/issues/170
-
 - Environment variable substitution in configuration files now supports two
   syntaxes for controlling the behavior of undefined variables: if ``VARNAME``
   is not defined, ``${VARNAME?}`` will raise an error, and ``${VARNAME-default
   value}`` will use "default value".
 
 - Tentative support for Python 3.8, which has not yet released an alpha. Fixes
-  `issue 707` and `issue 714`_.
-
-.. _issue 707: https://github.com/nedbat/coveragepy/issues/707
-.. _issue 714: https://github.com/nedbat/coveragepy/issues/714
+  :github:`707` and :github:`714`.
 
 
 .. _changes_50a2:
@@ -105,14 +95,12 @@ Version 5.0a2 --- 2018-09-03
 - HTML files no longer have trailing and extra whitespace.
 
 - The sort order in the HTML report is stored in local storage rather than
-  cookies, closing `issue 611`_.  Thanks, Federico Bond.
+  cookies, closing :github:`611`.  Thanks, Federico Bond.
 
 - pickle2json, for converting v3 data files to v4 data files, has been removed.
 
 .. _Bitbucket: https://bitbucket.org/ned/coveragepy
 .. _GitHub: https://github.com/nedbat/coveragepy
-
-.. _issue 611: https://github.com/nedbat/coveragepy/issues/611
 
 
 .. _changes_50a1:

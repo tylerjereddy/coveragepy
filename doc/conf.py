@@ -33,6 +33,7 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.ifconfig',
     'sphinxcontrib.spelling',
+    'sphinx.ext.extlinks',
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -181,6 +182,10 @@ htmlhelp_basename = 'coveragepydoc'
 spelling_word_list_filename = 'dict.txt'
 spelling_show_suggestions = False
 
+extlinks = {
+    # :github:`123` becomes: <a href='/https://openedx.atlassian.net/browse/TNL-4904'>TNL-4904</a>
+    'github': ('https://github.com/nedbat/coveragepy/issues/%s', 'issue '),
+}
 
 # When auto-doc'ing a class, write the class' docstring and the __init__ docstring
 # into the class docs.
