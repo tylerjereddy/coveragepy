@@ -179,10 +179,12 @@ class PathAliasesTest(CoverageTest):
         canonicalized paths.
 
         """
+        inp_mapped = aliases.map(inp)
+        canonized = files.canonical_filename(out)
         aliases.pprint()
-        print(inp)
-        print(out)
-        self.assertEqual(aliases.map(inp), files.canonical_filename(out))
+        print("inp: {} -- {}".format(inp, inp_mapped))
+        print("out: {} -- {}".format(out, canonized))
+        self.assertEqual(inp_mapped, canonized)
 
     def assert_unchanged(self, aliases, inp):
         """Assert that `inp` mapped through `aliases` is unchanged."""
@@ -309,6 +311,7 @@ class PathAliasesTest(CoverageTest):
 
             assert '~' not in the_file  # to be sure the test is pure.
             self.assert_mapped(aliases, the_file, '/the/source/a.py')
+        1/0
 
 
 class FindPythonFilesTest(CoverageTest):

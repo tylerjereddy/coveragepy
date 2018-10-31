@@ -134,7 +134,7 @@ build_script:
   - ps: if ( Test-Path 'dist' -PathType Container ) { Get-ChildItem dist\*.* | % { Push-AppveyorArtifact $_.FullName -FileName ('dist\' + $_.Name) } }
 
 test_script:
-  - "%CMD_IN_ENV% %PYTHON%\\Scripts\\tox"
+  - "%CMD_IN_ENV% %PYTHON%\\Scripts\\tox -- -k test_dot"
 
 after_test:
   - if "%COVERAGE_COVERAGE%" == "yes" 7z a metacov-win-%TOXENV%.zip %APPVEYOR_BUILD_FOLDER%\.metacov*
