@@ -352,7 +352,8 @@ class PathAliases(object):
 
         # We want */a/b.py to match on Windows too, so change slash to match
         # either separator.
-        regex_pat = regex_pat.replace(r"\/", r"[\\/]")
+        #regex_pat = regex_pat.replace(r"\/", r"[\\/]")
+        regex_pat = re.sub(r"\\?/", r"[\\\\/]", regex_pat)
         # We want case-insensitive matching, so add that flag.
         regex = re.compile(r"(?i)" + regex_pat)
 
