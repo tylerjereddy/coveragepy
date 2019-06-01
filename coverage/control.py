@@ -130,6 +130,7 @@ class Coverage(object):
             The `check_preimported` and `context` parameters.
 
         """
+        print("Coverage init")
         # Build our configuration from a number of sources.
         self.config = read_coverage_config(
             config_file=config_file,
@@ -325,6 +326,7 @@ class Coverage(object):
 
     def load(self):
         """Load previously-collected coverage data from the data file."""
+        print("loading previous data")
         self._init()
         if self._collector:
             self._collector.reset()
@@ -334,6 +336,7 @@ class Coverage(object):
         self._post_init()
         if not should_skip:
             self._data.read()
+
 
     def _init_for_start(self):
         """Initialization for start()"""
@@ -433,6 +436,7 @@ class Coverage(object):
         eventually, or your process might not shut down cleanly.
 
         """
+        print("inside start()")
         self._init()
         if not self._inited_for_start:
             self._inited_for_start = True
@@ -600,6 +604,7 @@ class Coverage(object):
         .. versionadded:: 4.0
 
         """
+        print("get_data")
         self._init()
         self._init_data(suffix=None)
         self._post_init()
@@ -607,6 +612,7 @@ class Coverage(object):
         if self._collector and self._collector.flush_data():
             self._post_save_work()
 
+        print("self._data:", self._data)
         return self._data
 
     def _post_save_work(self):
@@ -635,6 +641,7 @@ class Coverage(object):
     # Backward compatibility with version 1.
     def analysis(self, morf):
         """Like `analysis2` but doesn't return excluded line numbers."""
+        print("inside analysis")
         f, s, _, m, mf = self.analysis2(morf)
         return f, s, m, mf
 
@@ -655,6 +662,7 @@ class Coverage(object):
         coverage data.
 
         """
+        print("analysis2")
         analysis = self._analyze(morf)
         return (
             analysis.filename,

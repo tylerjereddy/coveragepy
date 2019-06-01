@@ -149,6 +149,7 @@ class PythonFileReporter(FileReporter):
 
     def __init__(self, morf, coverage=None):
         self.coverage = coverage
+        print("self.coverage:", self.coverage)
 
         filename = source_for_morf(morf)
 

@@ -35,6 +35,7 @@ class PythonParser(object):
         `exclude`, a regex.
 
         """
+        print("init PythonParser")
         assert text or filename, "PythonParser needs either text or filename"
         self.filename = filename or "<code>"
         self.text = text
@@ -48,6 +49,7 @@ class PythonParser(object):
                 )
 
         self.exclude = exclude
+        print("self.exclude in PythonParser:", self.exclude)
 
         # The text lines of the parsed code.
         self.lines = self.text.split('\n')
@@ -123,6 +125,7 @@ class PythonParser(object):
         # Find lines which match an exclusion pattern.
         if self.exclude:
             self.raw_excluded = self.lines_matching(self.exclude)
+
 
         # Tokenize, to find excluded suites, to find docstrings, and to find
         # multi-line statements.
@@ -248,9 +251,16 @@ class PythonParser(object):
 
         self.excluded = self.first_lines(self.raw_excluded)
 
-        ignore = self.excluded | self.raw_docstrings
+        self.raw_statements.update(self.raw_docstrings)
+        print("self.raw_statements:", self.raw_statements)
+        print("self.raw_docstrings:", self.raw_docstrings)
+        print("self.excluded:", self.excluded)
+        ignore = self.excluded
+        print("ignore:", ignore)
         starts = self.raw_statements - ignore
-        self.statements = self.first_lines(starts) - ignore
+        print("starts:", starts)
+        self.statements = self.raw_statements
+        print("self.statements:", self.statements)
 
     def arcs(self):
         """Get information about the arcs available in the code.

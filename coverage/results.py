@@ -15,14 +15,20 @@ class Analysis(object):
 
     def __init__(self, data, file_reporter):
         self.data = data
+        print("file_reporter:", file_reporter)
         self.file_reporter = file_reporter
         self.filename = self.file_reporter.filename
+        print("self.filename:", self.filename)
         self.statements = self.file_reporter.lines()
         self.excluded = self.file_reporter.excluded_lines()
+        print("self.excluded:", self.excluded)
+        print("self.statements:", self.statements)
 
         # Identify missing statements.
         executed = self.data.lines(self.filename) or []
+        print("executed:", executed)
         executed = self.file_reporter.translate_lines(executed)
+        print("executed:", executed)
         self.missing = self.statements - executed
 
         if self.data.has_arcs():
